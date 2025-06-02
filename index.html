@@ -6,7 +6,7 @@
   <meta name="author" content="Ashwin Rajendra Khadke">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+  <link rel="stylesheet" type="text/css" href="stylesheet_custom.css">
 	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
 </head>
 
@@ -20,13 +20,13 @@
               <p style="text-align:center">
                 <name>Ashwin Khadke</name>
               </p>
-              <p>I am a Ph.D. candidate at <a href="https://ri.cmu.edu/"> Robotics Institute, Carnegie Mellon University</a>, where I work on control theory and Reinforcement Learning. I am advised by <a href="https://www.cs.cmu.edu/~hgeyer/">Prof. Hartmut Geyer</a>
+              <p>I am an Applied Scientist at the Robotics and AI Institute, where I work on optimization based controls for dynamic robotic systems.
               </p>
               <p>
-                I work on approximately decomposing high-dimensional systems into easily solvable dynamical systems. 
+                I have received a Ph.D. from <a href="https://ri.cmu.edu/"> The Robotics Institute, Carnegie Mellon University</a> where I worked with <a href="https://www.cs.cmu.edu/~hgeyer/">Prof. Hartmut Geyer</a>. Before that, I graduated with an M.S. in Robotics from Carnegie Mellon University advised by <a href="https://www.cs.cmu.edu/~mmv/">Prof. Manuela Veloso</a>. Prior to that, I studied Mechanical Engineering at the <a href="https://www.iitb.ac.in">Indian Institute of Technology, Bombay</a>.
               </p>
               <p style="text-align:center">
-                <a href="mailto:akhadke@andrew.cmu.edu">Email</a> &nbsp/&nbsp
+                <a href="mailto:akhadke@alumni.cmu.edu">Email</a> &nbsp/&nbsp
                 <!-- <a href="data/CV.pdf">CV</a> &nbsp/&nbsp -->
                 <a href="data/my-bio.txt">Bio</a> &nbsp/&nbsp
                 <a href="https://scholar.google.com/citations?user=amQYGHEAAAAJ&hl=en&oi=ao">Google Scholar</a> &nbsp/&nbsp
@@ -35,27 +35,120 @@
               </p>
             </td>
             <td style="padding:2.5%;width:40%;max-width:40%">
-              <a href="images/ashwin_circle.png"><img style="width:100%;max-width:100%" alt="profile photo" src="images/ashwin_circle.png" class="hoverZoomLink"></a>
+              <a href="data/images/profile_circle.png"><img style="width:100%;max-width:100%" alt="profile photo" src="data/images/profile_circle.png" class="hoverZoomLink"></a>
+            </td>
+          </tr>
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="width:100%;vertical-align:middle">
+              <heading>Research</heading>
+              <p>
+                I am interested in developing optimal control and reinforcement learning methods for control of dynamic robots. 
+                During my Ph.D., I developed <a href="data/podec.html">Policy Decomposition</a>, a tool to automate the discovery of heirarchies for control that sacrifice minimally on optimality while providing substantial gains in sample efficiency.
+              </p>
+              <p>
+                Some of the systems that I am interested in, include legged robots,
+              </p>
+              <video class="vid" controls autoplay loop muted>
+                <source src="data/videos/atrias.mov" type="video/mp4">
+              </video>
+              <p>
+                and more recently quadrotors and wheeled robots
+              <div id="wrapper"> 
+                <video id="home1" controls autoplay loop muted> 
+                    <source type="video/mp4" src="data/videos/quadcopter.mp4" /> 
+                </video>
+                <video id="home2" controls autoplay loop muted> 
+                    <source type="video/mp4" src="data/videos/unicycle.mp4" /> 
+                </video>
+                <div class="clear"></div> 
+              </div>
+              </p>
+            </td>
+          </tr>
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="width:100%;vertical-align:middle">
+              <heading>Publications</heading>
             </td>
           </tr>
         </tbody></table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
             <tr>
             <td style="padding:20px;width:100%;vertical-align:middle">
-              <heading>Research</heading>
-              <p>
-                I'm interested in control theory, Reinforcement Learning and Advanced Multi-Body Simulation.  I, specifically, interested in applying control techniques to high-dimensional bipedal systems.
-              </p>
+              <subheading>Journal</subheading>
             </td>
           </tr>
         </tbody></table>
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
-
+          <!-- project entry -->
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <img class="thumbnail" src="data/images/searchmethods.png" alt="searchmethods" style="border-style: none">
+            </td>
+            <td width="75%" valign="middle">
+              <a href="data/PODEC-TRO.pdf">
+                <papertitle>Effective Search for Control Hierarchies within the Policy Decomposition Framework</papertitle>
+              </a>
+              <br>
+              <strong>Ashwin Khadke</strong>,
+              <a href="https://www.cs.cmu.edu/~hgeyer/">Hartmut Geyer</a>
+              <br>
+              <em>IEEE Transactions on Robotics</em>, 2023 (under review)
+              <br>
+              <a href="https://github.com/ash22194/Policy-Decomposition"> code </a> <!-- / <a href="data/searchmethods.bib">bibtex</a> -->
+              <div class="expanded-text">
+                <p>
+                  <span class="short-name"> Hierarchies for control are often hand-designed intuitively with little regard to their effect on the resulting closed-loop behavior. In this work, we present two search techniques for automatically discovering promising hierarchies for control. We demonstrate results on a range of robotic systems of varying complexity.</span>
+                  <span class="longer-name">
+                    Policy decomposition is a novel framework for approximating optimal control policies of complex dynamical systems. The framework belongs to the class of hierarchical control methods which compose a control policy from optimal control solutions of smaller but tractable sub-systems. What stands out about policy decomposition is that it can estimate a priori how well the closed-loop behavior of different control hierarchies will match the unknown optimal policy of the entire system. Policy decomposition can therefore discover tractable control policies that give up little in closed-loop performance. However, this advantage does not come for free, as even for systems with moderate numbers of states and inputs, their vast number of possible hierarchies makes it impossible to estimate the closed-loop performance for all hierarchies. Here we demonstrate that this combinatorial challenge does not thwart the utility of policy decomposition. We identify a tree-like representation of any control hierarchy that policy decomposition can produce and use it to adapt two combinatorial search methods, Genetic Algorithm and Monte Carlo Tree Search, to the search for promising control hierarchies. Applying the so adapted search methods to characteristic regulator problems in robotics, we find that the Genetic Algorithm in particular discovers promising hierarchies, which produce control policies that perform better than common heuristic policies and policies obtained with popu- lar neural network learning strategies. These results suggest the utility of the policy decomposition framework, and we conclude with directions of future research that would broaden the type of problems to which policy decomposition can be applied
+                  </span>
+                </p>
+              </div>
+              </td>
+          </tr>
+        </tbody></table>  
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <subheading>Conference</subheading>
+            </td>
+          </tr>
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <!-- project entry -->
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <img class="thumbnail" src="data/images/sparserepresentations.png" alt="searchmethods" style="border-style: none">
+            </td>
+            <td width="75%" valign="middle">
+              <a href="https://arxiv.org/abs/2209.07039">
+                <papertitle>Sparsity Inducing System Representations for Policy Decompositions</papertitle>
+              </a>
+              <br>
+              <strong>Ashwin Khadke</strong>,
+              <a href="https://www.cs.cmu.edu/~hgeyer/">Hartmut Geyer</a>
+              <br>
+              <em>IEEE Conference on Decision and Control</em>, 2022
+              <br>
+              <a href="data/sparserepresentations.bib">bibtex</a>
+              <div class="expanded-text">
+                <p>
+                  <span class="short-name"> The Policy Decomposition framework hierarchically constructs optimal control policies for a dynamical system whereby policies for different inputs are solved for in a decoupled or cascaded fashion and only as functions of subsets of the state variables. As a consequence the choice of state variables and control inputs used to describe a dynamical system has an effect on the quality of resulting policies. In this work, we present a method to automatically discover system representations that are more amenable to such hierarchical policy optimization.</span>
+                  <span class="longer-name">
+                    Policy Decomposition (PoDec) is a framework that lessens the curse of dimensionality when deriving policies to optimal control problems. For a given system representation, i.e. the state variables and control inputs describing a system, PoDec generates strategies to decompose the joint optimization of policies for all control inputs. Thereby, policies for different inputs are derived in a decoupled or cascaded fashion and as functions of some subsets of the state variables, leading to reduction in computation. However, the choice of system representation is crucial as it dictates the suboptimality of the resulting policies. We present a heuristic method to find a representation more amenable to decomposition. Our approach is based on the observation that every decomposition enforces a sparsity pattern in the resulting policies at the cost of optimality and a representation that already leads to a sparse optimal policy is likely to produce decompositions with lower suboptimalities. As the optimal policy is not known we construct a system representation that sparsifies its LQR approximation. For a simplified biped, a 4 degree-of-freedom manipulator, and a quadcopter, we discover decompositions that offer 10% reduction in trajectory costs over those identified by vanilla PoDec. Moreover, the decomposition policies produce trajectories with substantially lower costs compared to policies obtained from state-of-the-art reinforcement learning algorithms.
+                  </span>
+                </p>
+              </div>
+              </td>
+          </tr>
 
           <!-- project entry -->
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/project_policydecomposition.png" alt="policydecomposition" style="border-style: none">
+              <img  class="thumbnail" src="data/images/policydecomposition.png" alt="policydecomposition" style="border-style: none">
             </td>
             <td width="75%" valign="middle">
               <a href="https://ieeexplore.ieee.org/abstract/document/9555796">
@@ -65,20 +158,86 @@
               <strong>Ashwin Khadke</strong>,
               <a href="https://www.cs.cmu.edu/~hgeyer/">Hartmut Geyer</a>
               <br>
-              <em>Humanoids</em>, 2020
+              <em>IEEE Humanoids</em>, 2020
               <br>
-              <a href="data/policydecomposition.bib">bibtex</a>
-              <p>
-                Numerically computing global policies to optimal control problems for complex dynamical systems is mostly in- tractable. In consequence, a number of approximation methods have been developed. However, none of the current methods can quantify by how much the resulting control underperforms the elusive globally optimal solution. Here we propose policy decomposition, an approximation method with explicit subopti- mality estimates. Our method decomposes the optimal control problem into lower-dimensional subproblems, whose optimal solutions are recombined to build a control policy for the entire system. Many such combinations exist, and we introduce the value error and its LQR and DDP estimates to predict the suboptimality of possible combinations and prioritize the ones that minimize it. Using a cart-pole, a 3-link balancing biped and N-link planar manipulators as example systems, we find that the estimates correctly identify the best combinations, yielding control policies in a fraction of the time it takes to compute the optimal control without a notable sacrifice in closed-loop performance. While more research will be needed to find ways of dealing with the combinatorics of policy decomposition, the results suggest this method could be an effective alternative for approximating optimal control in intractable systems.
-
+              <a href="https://github.com/ash22194/Policy-Decomposition"> code </a> / <a href="data/policydecomposition.bib">bibtex</a>
+              <div class="expanded-text">
+                <p>
+                  <span class="short-name"> We tackle the curse of dimensionality in synthesizing global optimal control policies by reducing the original problem into a hierarchy of lower-dimensional subproblems. Hierarchies which offer dramatic reduction in computation while sacrificing minimally on closed-loop performance are readily identified using the suboptimality metrics we introduce.</span>
+                  <span class="longer-name">
+                    Numerically computing global policies to optimal control problems for complex dynamical systems is mostly intractable. In consequence, a number of approximation methods have been developed. However, none of the current methods can quantify by how much the resulting control underperforms the elusive optimal solution. Here we propose policy decomposition, an approximation method with explicit suboptimality estimates. Our method decomposes the optimal control problem into lower-dimensional subproblems, whose optimal solutions are recombined to build a control policy for the entire system. Many such combinations exist, and we introduce the value error and its LQR and DDP estimates to predict the suboptimality of possible combinations and prioritize the ones that minimize it. Using a cart-pole, a 3-link balancing biped and N-link planar manipulators as example systems, we find that the estimates correctly identify the best combinations, yielding control policies in a fraction of the time it takes to compute the optimal control without a notable sacrifice in closed-loop performance. While more research will be needed to find ways of dealing with the combinatorics of policy decomposition, the results suggest this method could be an effective alternative for approximating optimal control in intractable systems.
+                  </span>
                 </p>
+              </div>
               </td>
           </tr>
 
           <!-- project entry -->
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/project_workshopakshara.png" alt="project1" style="border-style: none">
+              <img src="data/images/project_ishani.png" alt="project2" style="border-style: none">
+            </td>
+            <td width="75%" valign="middle">
+              <a href="https://ojs.aaai.org//index.php/ICAPS/article/view/3535/3403">
+                <papertitle>Speeding Up Search-Based Motion Planning via Conservative Heuristics</papertitle>
+              </a>
+              <br>
+              <a href="https://www.ri.cmu.edu/ri-people/ishani-chatterjee/">Ishani Chatterjee</a>,
+              <strong>Ashwin Khadke</strong>,
+              <a href="http://www.cs.cmu.edu/~maxim/">Maxim Likhachev</a>,
+              <a href="http://www.cs.cmu.edu/~mmv/">Manuela Veloso</a>
+              <br>
+              <em>International Conference on Automated Planning and Scheduling</em>, 2019
+              <br>
+                <a href="data/ishaniicaps19.bib">bibtex</a>
+                <div class="expanded-text">
+                  <p>
+                    <span class="short-name"> We present an algorithm to derive heuristics for graph-search based planning that explicitly minimize the search effort. </span>
+                    <span class="longer-name">
+                      Weighted A* search (wA*) is a popular tool for robot motion-planning. Its efficiency however depends on the quality of heuristic function used. In fact, it has been shown that the correlation between the heuristic function and the true cost-to-goal significantly affects the efficiency of the search, when used with a large weight on the heuristics. Motivated by this observation, we investigate the problem of computing heuristics that explicitly aim to minimize the amount of search efforts in finding a feasible plan. The key observation we exploit is that while heuristics tries to guide the search along what looks like an optimal path towards the goal, there are other paths that are clearly sub-optimal yet are much easier to compute. For example, in motion planning domains like footstep-planning for humanoids, a heuristic that guides the search along a path away from obstacles is less likely to encounter local minima compared with the heuristics that guides the search along an optimal but close-to-obstacles path. We utilize this observation to define the concept of conservative heuristics and propose a simple algorithm for computing such a heuristic function. Experimental analysis on (1) humanoid footstep planning (simulation), (2) path planning for a UAV (simulation), and a real-world experiment in footstep-planning for a NAO robot shows the utility of the approach.
+                    </span>
+                  </p>
+                </div>
+            </td>
+          </tr>
+
+          <!-- Master's Thesis -->
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <img src="data/images/mastersconf1.png" alt="project5" style="border-style: none">
+            </td>
+            <td width="75%" valign="middle">
+                <papertitle>What Can This Robot Do? Learning Capability Models from Appearance and Experiments</papertitle>
+              <br>
+              <strong>Ashwin Khadke</strong>
+              <br>
+              <a href="https://www.ri.cmu.edu/publications/what-can-this-robot-do-learning-capability-models-from-appearance-and-experiments/"><em>Master's Thesis (CMU)</em></a>, <a href="https://link.springer.com/chapter/10.1007/978-3-030-01370-7_69"><em>Intelligent Autonomous Systems</em>, 2018</a>
+              <br>
+                <!-- <a href="data/mastersconf1.bib">bibtex</a> -->
+                <div class="expanded-text">
+                  <p>
+                    <span class="short-name"> We present an active learning algorithm that discovers the suitability of a robotic system in performing different tasks. Drawing a prior from the robot's appearance, the algorithm levarages an information theoretic approach for experiment design to systematically build a model of the robot's capabilities. </span>
+                    <span class="longer-name">
+                    As autonomous robots become increasingly multifunctional and adaptive, it becomes difficult to determine the extent of their capabilities, i.e. the tasks they can perform and their strengths and limitations at these tasks. A robot’s appearance can provide cues to its physical as well as cognitive capabilities. We present an algorithm that builds on these cues and learns models of a robot’s ability to perform different tasks through active experimentation. These models not only capture the robot’s inherent abilities but also incorporate the effect of relevant extrinsic factors on a robot’s performance. Our algorithm would find use as a tool for humans in determining ”What can this robot do?”. We applied our algorithm in modelling a NAO and a Pepper robot at two different tasks. We first illustrate the advantages of our active experimentation approach over building models through passive observations. Next, we show the utility of such models in identifying scenarios a robot is well suited for in performing a task. Finally, we demonstrate the use of such models in a collaborative human-robot task.
+                  </span>
+                  </p>
+                </div>
+            </td>
+          </tr>
+        </tbody></table>
+
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="padding:20px;width:100%;vertical-align:middle">
+              <subheading>Workshop and Preprints</subheading>
+            </td>
+          </tr>
+        </tbody></table>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+          <!-- project entry -->
+          <tr>
+            <td style="padding:20px;width:25%;vertical-align:middle">
+              <img src="data/images/project_workshopakshara.png" alt="project1" style="border-style: none">
             </td>
             <td width="75%" valign="middle">
               <a href="https://openreview.net/forum?id=XcgrVrW1BSm">
@@ -91,43 +250,22 @@
               <em>Robotics Retrospectives Workshop</em>, 2020
               <br>
               <a href="https://drive.google.com/file/d/0B4nuwEMaEsnmLUQ5SVJTcUZIYXc/view?usp=sharing">supplement</a> / <a href="data/KarschCVPR2013.bib">bibtex</a>
-              <p>In this work, we explore the use of Gaussian processes (GP) as function approximators for Reinforcement Learning (RL), and build estimates of the value function and Q-function using GPs. Such a representation allows us to learn Q-functions, and thereby policies, conditioned on uncertainty in the system dynamics, and can be useful in sample efficiently transferring policies learned in simulation to hardware.
-
-                We use two approaches, GPTD and GPSARSA, to build approximate value functions and Q-functions respectively. While for simple, continuous problems, we found these to be effective at approximating the value function and the Q-function, for discontinuous landscapes GPSARSA deteriorates in performance, even on simple problems. As the problem complexity increases, for example, for an inverted pendulum, we find that both approaches are extremely sensitive to the GP hyperparameters, and do not scale well. We experiment with a sparse variant of the algorithm but find that GPSARSA still converges to poor solutions. Our experiments show that while GPTD and GPSARSA are nice theoretical formulations, they are not suitable for complex domains without extensive hyperparameter tuning.
-              </p>
-                
-              </td>
-          </tr>
-
-          <!-- project 2 -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/project_ishani.png" alt="project2" style="border-style: none">
-            </td>
-            <td width="75%" valign="middle">
-              <a href="https://ojs.aaai.org//index.php/ICAPS/article/view/3535/3403">
-                <papertitle>Speeding Up Search-Based Motion Planning via Conservative Heuristics</papertitle>
-              </a>
-              <br>
-              <a href="https://www.ri.cmu.edu/ri-people/ishani-chatterjee/">Ishani Chatterjee</a>,
-              <strong>Ashwin Khadke</strong>,
-              <a href="http://www.cs.cmu.edu/~maxim/">Maxim Likhachev</a>,
-              <a href="http://www.cs.cmu.edu/~mmv/">Manuela Veloso</a>
-              <br>
-              <em>ICAPS</em>, 2019
-              <br>
-                <a href="data/ishaniicaps19.bib">bibtex</a>
-              <p>
-                Weighted A* search (wA*) is a popular tool for robot motion-planning. Its efficiency however depends on the quality of heuristic function used. In fact, it has been shown that the correlation between the heuristic function and the true cost-to-goal significantly affects the efficiency of the search, when used with a large weight on the heuristics. Motivated by this observation, we investigate the problem of computing heuristics that explicitly aim to minimize the amount of search efforts in finding a feasible plan. The key observation we exploit is that while heuristics tries to guide the search along what looks like an optimal path towards the goal, there are other paths that are clearly sub-optimal yet are much easier to compute. For example, in motion planning domains like footstep-planning for humanoids, a heuristic that guides the search along a path away from obstacles is less likely to encounter local minima compared with the heuristics that guides the search along an optimal but close-to-obstacles path. We utilize this observation to define the concept of conservative heuristics and propose a simple algorithm for computing such a heuristic function. Experimental analysis on (1) humanoid footstep planning (simulation), (2) path planning for a UAV (simulation), and a real-world experiment in footstep-planning for a NAO robot shows the utility of the approach.
+              <div class="expanded-text">
+                <p>
+                  <span class="short-name"> We investigate the use of Gaussian Processes as value function approximators and the utlity of the associated uncertainty estimate in improving exploration for policy learning. </span>
+                  <span class="longer-name">
+                    In this work, we explore the use of Gaussian processes (GP) as function approximators for Reinforcement Learning (RL), and build estimates of the value function and Q-function using GPs. Such a representation allows us to learn Q-functions, and thereby policies, conditioned on uncertainty in the system dynamics, and can be useful in sample efficiently transferring policies learned in simulation to hardware.
+                    We use two approaches, GPTD and GPSARSA, to build approximate value functions and Q-functions respectively. While for simple, continuous problems, we found these to be effective at approximating the value function and the Q-function, for discontinuous landscapes GPSARSA deteriorates in performance, even on simple problems. As the problem complexity increases, for example, for an inverted pendulum, we find that both approaches are extremely sensitive to the GP hyperparameters, and do not scale well. We experiment with a sparse variant of the algorithm but find that GPSARSA still converges to poor solutions. Our experiments show that while GPTD and GPSARSA are nice theoretical formulations, they are not suitable for complex domains without extensive hyperparameter tuning.
+                  </span>
                 </p>
-
-              </td>
+              </div>
+            </td>
           </tr>
 
-          <!-- project 3 -->
+          <!-- project entry -->
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/project_expertexploration.jpg" alt="project3" style="border-style: none">
+              <img src="data/images/project_expertexploration.jpg" alt="project3" style="border-style: none">
             </td>
             <td width="75%" valign="middle">
               <a href="https://www.ri.cmu.edu/publications/exploration-with-expert-policy-advice/">
@@ -136,116 +274,82 @@
               <br>
               <strong>Ashwin Khadke</strong>,
               <a href="https://www.andrew.cmu.edu/user/arpita1/">Arpit Agarwal</a>,
-              <a href="https://scholar.google.com/citations?user=F2inK2UAAAAJ&hl=en"Anahita Mohseni Kabir</a>,
+              <a href="https://scholar.google.com/citations?user=F2inK2UAAAAJ&hl=en">Anahita Mohseni Kabir</a>,
               <a href="https://www.ri.cmu.edu/ri-people/devin-schwab/">Devin Schwab</a>
               <br>
               <em>Technical Report</em>, 2018
               <br>
                 <a href="data/courseproject.bib">bibtex</a>
-              <p>
-                Exploration for Reinforcement Learning is a challenging problem. Random exploration is often highly inefficient and in sparse reward environments may completely fail. In this work, we developed a novel method which incorporates ex- pert advice for exploration in sparse reward environments. In our formulation, the agent has access to a set of expert policies and learns to bias its exploration based on the ex- perts’ suggested actions. By incorporating expert suggestions the agent is able to quickly learn a policy to reach rewarding states. Our method can mix and match experts’ advice during an episode to reach goal states. Moreover, our formulation does not restrict the agent to any policy set. This allows us to aim for a globally optimal solution. In our experiments, we show that using expert advice indeed leads to faster explo- ration in challenging grid-world environments.
-                </p>
-
-              </td>
+                <div class="expanded-text">
+                  <p>
+                    <span class="short-name"> We present an algorithm to incorporate a set of expert policies to improve exploration and thereby the sample efficiency in policy optimization. Selection of suitable exploration actions is then posed as an 'online learning with expert advice' problem. </span>
+                    <span class="longer-name">
+                      Exploration for Reinforcement Learning is a challenging problem. Random exploration is often highly inefficient and in sparse reward environments may completely fail. In this work, we developed a novel method which incorporates expert advice for exploration in sparse reward environments. In our formulation, the agent has access to a set of expert policies and learns to bias its exploration based on the experts’ suggested actions. By incorporating expert suggestions the agent is able to quickly learn a policy to reach rewarding states. Our method can mix and match experts’ advice during an episode to reach goal states. Moreover, our formulation does not restrict the agent to any policy set. This allows us to aim for a globally optimal solution. In our experiments, we show that using expert advice indeed leads to faster exploration in challenging grid-world environments.
+                    </span>
+                  </p>
+                </div>
+            </td>
           </tr>
 
-          <!-- project 4 -->
+          <!-- Bachelor's Thesis -->
           <tr>
             <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/mastersthesis.png" alt="project4" style="border-style: none">
             </td>
             <td width="75%" valign="middle">
-              <a href="https://www.ri.cmu.edu/publications/what-can-this-robot-do-learning-capability-models-from-appearance-and-experiments/">
-                <papertitle>What Can This Robot Do? Learning Capability Models from Appearance and Experiments</papertitle>
+              <a href="data/UGThesis.pdf">
+                <papertitle>Learning Models of Elastoplastic Deformations</papertitle>
               </a>
               <br>
               <strong>Ashwin Khadke</strong>
-              <em>Master's Thesis, CMU</em>, 2018
               <br>
-                <a href="data/masters.bib">bibtex</a>
-              <p>
-
-As autonomous robots become increasingly multifunctional and adaptive, it becomes difficult to determine the extent of their capabilities, i.e. the tasks they can perform and their strengths and limitations at these tasks. A robot’s appearance can provide cues to its physical as well as cognitive capabilities. We present an algorithm that builds on these cues and learns models of a robot’s ability to perform different tasks through active experimentation. These models not only capture the robot’s inherent abilities but also incorporate the effect of relevant extrinsic factors on a robot’s performance. Our algorithm would find use as a tool for humans in determining ”What can this robot do?”.
-We applied our algorithm in modelling a NAO and a Pepper robot at two different tasks. We first illustrate the advantages of our active experimen- tation approach over building models through passive observations. Next, we show the utility of such models in identifying scenarios a robot is well suited for in performing a task. Finally, we demonstrate the use of such models in a collaborative human-robot task.
-                </p>
-
-              </td>
-          </tr>
-
-          <!-- project 5 -->
-          <tr>
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/mastersconf1.png" alt="project5" style="border-style: none">
+              <em>Bachelor's Thesis (IIT Bombay)</em>
+              <br>
+                <!-- <a href="data/mastersconf1.bib">bibtex</a> -->
+                <div class="expanded-text">
+                  <p>
+                    <span class="short-name">
+                    Enabling robots to handle highly deformable objects for domestic purposes (cooking etc.) requires an accurate description of the object’s material properties. Additionally, being able to simulate the behavior of such objects in reasonable time is another requirement. Handling metallic or wooden objects is comparatively easy, as the rigid body assumption is quite accurate. This work investigates the Smoothed Particle Hydrodynamics method for simulating objects that undergo large deformations, such as rubber bands or pizza dough. </span>
+                    <span class="longer-name">
+                    Enabling robots to handle highly deformable objects for domestic purposes (cooking etc.) requires an accurate description of the object’s material properties. Additionally, being able to simulate the behavior of such objects in reasonable time is another requirement. Handling metallic or wooden objects is comparatively easy, as the rigid body assumption is quite accurate. This work investigates the Smoothed Particle Hydrodynamics method for simulating objects that undergo large deformations, such as rubber bands or pizza dough. </span>
+                  </p>
+                </div>
             </td>
-            <td width="75%" valign="middle">
-              <a href="https://link.springer.com/chapter/10.1007/978-3-030-01370-7_69">
-                <papertitle>What Can This Robot Do? Learning Capability Models from Appearance and Experiments</papertitle>
-              </a>
-              <br>
-              <strong>Ashwin Khadke</strong>
-              <em>IAS</em>, 2018
-              <br>
-                <a href="data/mastersconf1.bib">bibtex</a>
-              <p>
-
-As autonomous robots become increasingly multifunctional and adaptive, it becomes difficult to determine the extent of their capabilities, i.e. the tasks they can perform and their strengths and limitations at these tasks. A robot’s appearance can provide cues to its physical as well as cognitive capabilities. We present an algorithm that builds on these cues and learns models of a robot’s ability to perform different tasks through active experimentation. These models not only capture the robot’s inherent abilities but also incorporate the effect of relevant extrinsic factors on a robot’s performance. Our algorithm would find use as a tool for humans in determining ”What can this robot do?”.
-We applied our algorithm in modelling a NAO and a Pepper robot at two different tasks. We first illustrate the advantages of our active experimen- tation approach over building models through passive observations. Next, we show the utility of such models in identifying scenarios a robot is well suited for in performing a task. Finally, we demonstrate the use of such models in a collaborative human-robot task.
-                </p>
-
-              </td>
           </tr>
-
 
         </tbody></table>
-
-				
-        <table width="100%" align="center" border="0" cellspacing="0" cellpadding="20"><tbody>
-          <tr>
-            <td>
-              <heading>Misc</heading>
+        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+            <tr>
+            <td style="width:100%;vertical-align:middle">
+              <heading>Teaching</heading>
             </td>
           </tr>
         </tbody></table>
         <table width="100%" align="center" border="0" cellpadding="20"><tbody>
-					
-          <!-- <tr> -->
-            <!-- <td style="padding:20px;width:25%;vertical-align:middle"><img src="images/cvf.jpg"></td> -->
-            <!-- <td width="75%" valign="center"> -->
-              <!-- <a href="https://cvpr2022.thecvf.com/area-chairs">Area Chair, CVPR 2022</a>
-              <br> -->
-            <!-- </td>
-          </tr> -->
           <tr>
-            <!-- <td style="padding:20px;width:25%;vertical-align:middle">
-              <img src="images/cs188.jpg" alt="cs188">
-            </td> -->
             <td width="100%" valign="center"> 
-              <a href="https://www.cs.cmu.edu/~hgeyer/Teaching_16-711.html">Graduate Student Instructor, 16-711 Fall 2021</a>
+              Graduate Student Instructor, Kinematics Dynamics and Control (<a href="https://www.cs.cmu.edu/~hgeyer/Teaching_16-711.html">16-711</a>), Spring 2020
               <br>
-              <a href="https://sites.google.com/site/robotkinematicscmu/">Graduate Student Instructor, 16-384 Fall 2020</a>
+              Graduate Student Instructor, Robot Kinematics and Dynamics (<a href="https://sites.google.com/site/robotkinematicscmu/">16-384</a>), Fall 2018
+              <br>
+              Simulation of constrained dynamical systems (<a href="data/constraineddynamics/index.html">tutorial</a>)
             </td>
           </tr>
-					
-
-
-					
-					
         </tbody></table>
+
         <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
           <tr>
             <td style="padding:0px">
               <br>
-              <p style="text-align:left;font-size:small;">
-                Feel free to steal this website's <a href="https://github.com/jonbarron/jonbarron_website">source code</a>,
-                just add a link back to my website.
+              <p style="text-align:left;">
+                This website's is based on Jon Barron's <a href="https://github.com/jonbarron/jonbarron_website"> template</a>.
                 <br>
               </p>
             </td>
           </tr>
         </tbody></table>
+
       </td>
     </tr>
   </table>
 </body>
-
 </html>

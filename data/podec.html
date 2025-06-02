@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+  <title>Policy Decomposition</title>
+  
+  <meta name="author" content="Ashwin Rajendra Khadke">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="stylesheet" type="text/css" href="../stylesheet.css">
+	<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌐</text></svg>">
+</head>
+
+<body>
+  <table style="width:100%;max-width:66%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+    <tbody>
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle">
+          <p style="text-align:justify">
+            <name>Policy Decomposition</name>
+          </p>
+          <p>
+            <figure style="width:4%;max-width:4%">
+              <a href="https://github.com/ash22194/Policy-Decomposition">
+                <img style="width:100%;max-width:100%" alt="code" src="images/podec/code_icon.png" class="left">
+              </a>
+              <figcaption style="text-align:center;">Code</figcaption>
+            </figure>
+            <figure style="width:4%;max-width:4%">
+              <a href="#references">
+                <img style="width:100%;max-width:100%" alt="papers" src="images/podec/pdf.png">
+              </a>
+              <figcaption style="text-align:center;">Papers</figcaption>
+            </figure>
+          </p>
+          <p  style="text-align:justify">
+            The computational complexity of solving for global optimal control policies scales exponentially with the dimensionality of the state and input space of the underlying dynamical system. Policy Decomposition is a hierarchical control framework to lessen this curse of dimensionality. The framework automatically identifies suitable hierarchies to reduce the joint optimization of policies for all the control inputs to a system. Thereby policies for different inputs are derived either in a decoupled or in a cascaded fashion and only as functions of some subset of the state variables. Two examples hierarchies for a simple cartpole system with two control inputs are shown below.
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;">
+          <figure style="width:100%;max-width:100%">
+          <a href="images/podec/cartpole.png">
+            <img style="width:100%;max-width:100%" alt="idea podec" src="images/podec/cartpole_cropped.png" class="hoverZoomLink">
+          </a>
+          <figcaption style="text-align:justify-all;font-family:Palatino;"><b>Figure 1</b>: Idea of Policy Decomposition illustrated with the cart-pole system in (<b>a</b>). In (<b>b</b>) examples of hierarchies constructed using the fundamental strategies of cascading and decoupling are depicted. In (<b>c</b>) trajectories resulting from policies derived using the heriarchies in (<b>b</b>) are shown.</figcaption>
+        </figure>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle">
+          <p style="text-align:justify">
+            Generally, suitable hierarchies for control problems are either heuristically designed or are based on some open-loop measure. As a consequence, the resulting optimal control policies derived using such hierarchies can be highly suboptimal. In contrast, Policy Decomposition introduces a suboptimality metric to quantify the loss in closed-loop performance of hierarchical policies in comparison to the optimal policy. Furthermore, as this metric cannot be computed without solving for the policies, Policy Decomposition estimates it by solving relaxed versions of the policy optimization problem and thereby apriori assessing the suboptimality of different hierarchies. More details can be found in [<a href="#Khadke:2020">1</a>].
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0px;">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;text-align:center">
+          <a id="valueerror" href="images/podec/suboptimality.jpeg">
+            <img style="width:50%;max-width:100%;" alt="suboptimality" src="images/podec/suboptimality.jpeg" class="center">
+          </a>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle">
+          <p style="text-align:justify">
+            Several hierarchies can be constructed using a combination of the two fundamental strategies of cascading and decoupling shown above in the cartpole example. A general hierarchy can be uniquely represented using a tree-like structure. One example is shown below in <a href="#inputtree"><b>Figure</b> 2(a)</a>. The nodes of the tree consist of subsets of control inputs and state variables. Subtrees represent subsystems whose dynamics are described using state-variables in the entire subtree. Furthermore, these subsystems are controlled using the inputs situated at the root-node of the subtree. Subsystems that lie on different branches are decoupled for the sake of policy computation and those that lie on the same branch are in a cascade where policies to control the subsystems lower in the cascade are derived first. <a href="#quad_examp_decomp"><b>Figure</b> 2(b)</a> showcases a similar hierarchical structure identified by Policy Decomposition for the hover control of a quadcopter. In this hierarchy, the thrust and roll control is jointly optimized, lower in cascade to the pitch controller, and the yaw control is decoupled from the rest.
+
+            <!-- Furthermore, it systematically searches and automatically discovers promising hierarchies that optimally trade-off reduction in computation with loss in closed-loop performance. -->
+          </p>
+        </td>
+      </tr>
+
+      
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;">
+          <figure style="width:50%;max-width:50%;float:left;">
+            <figcaption>(a)</figcaption>
+            <a id="inputtree" href="images/podec/input_tree.gif">
+              <img style="width:100%;max-width:100%;" alt="podec_idea" src="images/podec/input_tree_modified.gif">
+            </a>
+          </figure>
+          <figure style="width:50%;max-width:50%;float:left;">
+            <figcaption>(b)</figcaption>
+            <a id="quad_examp_decomp" href="images/podec/quadcopter_decomposition.gif">
+              <img style="width:100%;max-width:100%;" alt="quadcopter_decomposition" src="images/podec/quadcopter_decomposition.gif">
+            </a>
+          </figure>
+          <p style="font-size:12px;text-align:justify;font-family:Palatino">
+            <b>Figure 2</b>: (<b>a</b>) Example of tree structure representing a hierarchy for a fictive system with four state variables and four control inputs is shown. Policies for inputs that lie in the same branch of the tree are computed starting from the leaf nodes moving up to the root. In this example, policies for u<sub>2</sub> and u<sub>3</sub> are jointly optimized by solving the optimal control problem for subsystem 1. Then a policy for u<sub>4</sub> is computed. Finally, a policy for input u<sub>1</sub> is obtained by solving the optimal control problem for subsystem 3. The resulting policies for different inputs are a function of different state variables. (<b>b</b>) A similar hierarchy for a quadcopter system.
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle">
+          <p style="text-align:justify">
+            <heading>Search for promising hierarchies</heading>
+          </p>
+          <p style="text-align:justify">
+            Highly desireable hierarchies are those that offer substantial reduction in required computation for policy optimization while sacrificing minimally in closed-loop performance. Policy Decomposition combines these two competing criterias into a scalar fitness function shown below. <i>F(&delta;)</i> takes values between [0,1] where lower values indicate a more promising hierarchy. Here, <i>F<sub>err</sub>(&delta;)</i> simply scales the <a href="#valueerror">suboptimality metric</a> introduced earlier to a value between [0,1] and <i>F<sub>comp</sub>(&delta;)</i> is an estimate of the number of floating point operations that would be required to compute the hierarchical policy vs the optimal policy.
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0px;">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;text-align:center">
+          <a id="fitness" href="images/podec/fitness.jpeg">
+            <img style="width:90%;max-width:100%;" alt="fitness" src="images/podec/fitness.jpeg" class="center">
+          </a>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle">
+          <p style="text-align:justify">
+            In order to systematically search and find hierarchies that minimize the above fitness criteria, Policy Decomposition adapts two popular algorithms for combinatorial optimization, namely Genetic Algorithm and Monte-Carlo Tree Search, to search over the space of possible hierarchies. Illustrations of how these search methods operate are shown in <a href="#ga"><b>Figure</b> 3(a)</a> and <a href="#mcts"><b>Figure</b> 3(b)</a> respectively. These search algorithms are suitably modified to make use of a bijective encoding scheme for hierarchies, a uniform sampling strategy to generate a population of hierarchies, and mutation operators that allow transformation between any two hierarchies for a system. For details, please refer [<a href="#Khadke:2022(a)">2</a>].
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:45%;vertical-align:middle;">
+          <!-- <figure style="width:100%;max-width:100%;">
+            <figcaption>(a)</figcaption>
+            <a href="images/podec/fitness.jpeg">
+              <img style="width:50%;max-width:50%;" alt="fitness" src="images/podec/fitness.jpeg" class="center">
+            </a>
+          </figure> -->
+          <figure style="width:50%;max-width:50%;float:left;">
+            <figcaption>(a)</figcaption>
+            <a id="ga" href="images/podec/ga_white_cropped.gif">
+              <img style="width:100%;max-width:100%" alt="GA" src="images/podec/ga_white_cropped.gif" class=left>
+            </a>
+          </figure>
+          <figure style="width:50%;max-width:50%;float:left;">
+            <figcaption>(b)</figcaption>
+            <a id="mcts" href="images/podec/mcts.gif">
+              <img style="width:100%;max-width:100%" alt="MCTS" src="images/podec/mcts.gif" class=right>
+            </a>
+          </figure>
+          <p style="font-size:12px;text-align:justify;font-family:Palatino">
+            <b>Figure 3</b>: (<b>a</b>) Genetic Algorithm adapted to search for hierarchies. A strategy to uniformly sample and mutation operators to iteratively modify a population of hierarchies is introduced. (<b>b</b>) Hierarchy search posed as a sequential decision making problem where Monte-Carlo Tree Search is used to construct a search tree over the space of hierarchies. The original undecomposed policy optimization problem forms the root node of the search tree and different hierarchies are constructed by iteratively decomposing.
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;">
+          <p style="text-align:justify">
+            <heading>System representations more conducive to hierarchical policy optimization</heading>
+          </p>
+          <p style="text-align:justify">
+            Policy Decomposition constructs hierarchies for control based on a given choice of state variables and control inputs describing a system. However, this choice of system representation is critical. Consider the problem of obtaining an optimal controller for a quadcopter to hover in place. Hierarchies for the policy optimization of motor thrusts F<sub>i</sub> that offer notable reduction in compute are highly suboptimal, and the hierarchy that minimizes the <a href="#fitness">fitness criteria</a> does not even produce stable closed-loop behavior. In contrast, more promising hierarchies are discovered if one uses the linearly transformed inputs of net thrust T and the roll, pitch and yaw differential thrusts (F<sub>roll</sub>, F<sub>pitch</sub> and F<sub>yaw</sub> respectively).
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;">
+          <figure style="width:100%;max-width:100%">
+          <a href="images/podec/quadcopter_system_representation.gif">
+            <img style="width:100%;max-width:100%" alt="sys rep quad" src="images/podec/quadcopter_system_representation.gif" class="hoverZoomLink">
+          </a>
+          <figcaption style="text-align:justify-all;font-family:Palatino;"><b>Figure 4</b>: The effect of system representation on quality of resulting hierarchies. The control of the quadcopter system is not decomposable when directly optimizing for policies of motor torques. However, the optimization of policies for the net thrust (T), and the roll, pitch and yaw differential thrusts, can be readily decomposed with marginal loss in closed-loop performance.</figcaption>
+        </figure>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;">
+          <p style="text-align:justify">
+            To further illustrate the idea, consider a linear system with two variables <i>x<sub>1</sub></i> and <i>x<sub>2</sub></i> shown in <a href="#sysreplinear"><b>Figure</b> 5</a>. Any hierarchy imposed on this system results in suboptimal policies whereas for the linearly transformed system the optimal policies can be readily computed in a decoupled fashion. Note, that whether a system representation is amenable to hierarchical policy optimization is also dependent on the cost of the optimal control problem.
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;">
+          <figure style="width:100%;max-width:100%">
+          <a id="sysreplinear" href="images/podec/linear_system_representation_modified.gif">
+            <img style="width:100%;max-width:100%" alt="sys rep linear" src="images/podec/linear_system_representation_modified.gif" class="hoverZoomLink">
+          </a>
+          <figcaption style="text-align:justify-all;font-family:Palatino;"><b>Figure 5</b>: The choice of state variables and control inputs is critical to finding promising hierarchies. Consider a linear dynamical system with two state variables <i>x<sub>1</sub></i> and <i>x<sub>2</sub></i> and two control inputs <i>u<sub>1</sub></i> and <i>u<sub>2</sub></i>. The directed graph depicts the influence of inputs and state variables on the dynamics of different state variables. Any possible hierarchy for this system, ignores some influences depicted in the directed graph and thus a hierarchical optimization of policies for inputs <i>u<sub>1</sub></i> and <i>u<sub>2</sub></i> is bound to be suboptimal. However, for the transformed set of inputs <i>v<sub>1</sub></i> and <i>v<sub>2</sub></i> the decoupled hierarchy is optimal, and policies for <i>v<sub>1</sub></i> and <i>v<sub>2</sub></i> can be computed independently as functions of variables <i>y<sub>1</sub></i> and <i>y<sub>2</sub></i> respectively.</figcaption>
+        </figure>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;">
+          <p style="text-align:justify">
+            The Policy Decomposition framework also presents a heuristic approach to automatically derive system representations that lead to hierarchies with lower suboptimalities. It assumes a given representation for a system, i.e. state variables <i><b>x</b></i> and control inputs <i><b>u</b></i>, and constructs linear transformations (<i><b>T<sub>y</sub></b></i>, <i><b>T<sub>v</sub></b></i>) to system representations (<i><b>y</b></i> = <i><b>T<sub>y</sub></b></i>(<i><b>x</b></i> - <i><b>x<sup>d</sup></b></i>), <i><b>v</b></i> = <i><b>T<sub>v</sub></b></i>(<i><b>u</b></i> - <i><b>u<sup>d</sup></b></i>)) that lead to hierarchies with lower suboptimalities. Here, optimal regulation problems are considered where the objective is to drive the system to a fixed desired state <i><b>x<sup>d</sup></b></i> and <i><b>u<sup>d</sup></b></i> is the control input that stabilizes the system at this state. The approach to derive linear transformations <i><b>T<sub>y</sub></b></i> and <i><b>T<sub>v</sub></b></i> is based on the observation that any hierarchy enforces sparsity in the resulting policies at the cost of optimality, as policies for different inputs are restricted to be a function of only some subset of the state variables. Therefore, a system representation that already leads to a sparse optimal policy is more likely to generate hierarchies with lower suboptimalities. Since the optimal policy is not known, an estimate of the optimal policy is derived using the linearized system dynamics and solving an LQR problem, and the singular value decomposition of the optimal LQR gain is used to derive <i><b>T<sub>y</sub></b></i> and <i><b>T<sub>v</sub></b></i> (<a href="#sparsetransform"><b>Figure</b> 6</a>). The singular value decomposition is need not be unique, if the matrix is rectangular or has repeated singular values and a regularization strategy is introduced to resolve this non-uniqueness. For details, please refer [<a href="#Khadke:2022(b)">3</a>].
+          </p>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;text-align:center">
+          <figure style="width:100%;max-width:100%">
+          <a id="sparsetransform" href="images/podec/sparsity_inducing_transformations.jpeg">
+            <img style="width:80%;max-width:80%" alt="sparse transform" src="images/podec/sparsity_inducing_transformations.jpeg" class="center">
+          </a>
+          <figcaption style="text-align:justify-all;font-family:Palatino;"><b>Figure 6</b>: Transformations that lead to a sparse optimal policy are constructed using an approximation to the optimal policy based on linearized system dynamics and singular value decomposition of the resulting LQR gain matrix.</figcaption>
+        </figure>
+        </td>
+      </tr>
+
+      <tr style="padding:0px">
+        <td style="padding:2.5%;width:95%;vertical-align:middle;">
+          <p style="text-align:justify">
+            <heading>References</heading>
+          </p>
+          <a id="references">
+          <ol>
+            <li>
+              <a id="Khadke:2020" href="https://ieeexplore.ieee.org/document/9555796">
+                A. Khadke and H. Geyer, <i>Policy Decomposition : Approximate Optimal Control with Suboptimality Estimates</i>, IEEE Humanoids 2020 
+              </a>
+            </li>
+            <li>
+              <a id="Khadke:2022(a)" href="https://arxiv.org/abs/2203.15200">
+                A. Khadke and H. Geyer, <i>Search Methods for Policy Decomposition</i>, ArXiv 2022
+              </a>
+            </li>
+            <li>
+              <a id="Khadke:2022(b)" href="https://arxiv.org/abs/2209.07039">
+                A. Khadke and H. Geyer, <i>Sparsity Inducing System Representations for Policy Decompositions</i>, IEEE CDC 2022
+              </a>
+            </li>
+          </ol>
+          </a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+</body>
+</html>
